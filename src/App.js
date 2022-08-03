@@ -6,9 +6,13 @@ import { Profile } from './Component/Pages/Profile/Profile';
 import { Header } from './Component/Header';
 import { Post } from './Component/Pages/Post';
 import { MyAddress } from './Component/Pages/Profile/MyAddress';
+import { Login } from './Component/Login';
+import { AuthContext } from './AuthContext';
+import { RequireLogin } from './Component/RequireLogin';
 
 function App() {
   return (
+    <AuthContext>
     <div className='App'>
       <Header/>
      <Routes>
@@ -19,17 +23,19 @@ function App() {
         <Route path='myblog' element={<div>this is my blog</div>}/>
       </Route>
 
-      <Route path='/profile' element={<Profile/>}>
+      <Route path='/profile' element={<RequireLogin><Profile/></RequireLogin>}>
         <Route path='myorder' element={<div>My orders</div>}/>
         <Route path='myaddress' element={<MyAddress/>}/>
         <Route path='mywallet' element={<div>My wallet</div>}/>
       </Route>
 
       {/* parameters ---> dynamic routing */}
-      <Route path='/:postId/:id' element={<Post/>}/>
+      <Route path='/:postId' element={<Post/>}/>
+      <Route path='/login' element={<Login/>}/>
       <Route path='*' element={<div>Page not found</div>}/>
      </Routes>
     </div>
+    </AuthContext>
   );
 }
 

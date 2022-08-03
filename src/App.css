@@ -31,11 +31,20 @@
 .App-link {
   color: #61dafb;
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 
 ul{
   display: flex;
   flex-direction: column;
   
+}
+.nav{
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
 }
 a {
   margin-right: 1rem;
@@ -50,6 +59,9 @@ a {
 .header{
   background: #282c34;
   width: 100%;
+}
+.white{
+  color: #fff;
 }
 
 li{

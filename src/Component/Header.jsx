@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { UserContext } from '../AuthContext'
 
 export const Header = () => {
+    const loggedInUser = useContext(UserContext)
+    // const isloggedIn = loggedInUser.user.username ? true : false
   return (
     <>
     <header className='header'>
-        <ul>
+        <ul className='nav'>
             <li>
                 {/* <a href="/">Home</a> */}
                 {/* <Link to='/'>Home</Link> */}
@@ -21,11 +24,15 @@ export const Header = () => {
                 {/* <Link to='/profile'>profile</Link> */}
                 <NavLink to='/profile'>profile</NavLink>
             </li>
+            {/*
             <li>
-                {/* <a href="/profile">Profile</a> */}
-                {/* <Link to='/cart'>cart</Link> */}
                 <NavLink to='/cart'>cart</NavLink>
             </li>
+            */}
+            
+            { loggedInUser.user.username ? <div className='white'>Welcome {loggedInUser.user.username}</div> : <li>
+                <NavLink to='/login'>Login</NavLink>
+            </li>}
         </ul>
     </header>
     </>
