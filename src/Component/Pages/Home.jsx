@@ -20,7 +20,7 @@ export const Home = () => {
       posts.map((el) =>{
         return (
           <li key={el.id}>
-            <Link to={`${el.id}`}>{el.title}</Link>
+            <Link to={`${el.id}/${el.userId}`}>{el.title}</Link>
             {/* <div>{el.title}</div> */}
             <br/>
           </li>
