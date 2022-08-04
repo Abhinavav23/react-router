@@ -1,17 +1,18 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { UserContext } from '../AuthContext'
 
 export const Login = () => {
     const loggedInuser = useContext(UserContext)
     const navigate = useNavigate()
+    const location = useLocation()
     const [userInfo, setUserName] = useState({
         username:'',
         password: ''
     })
     const handleSubmit = (e) => {
         e.preventDefault()
-        navigate('/')
+        navigate(location.state.previousPath)
         loggedInuser.setUser(userInfo)
     }
 

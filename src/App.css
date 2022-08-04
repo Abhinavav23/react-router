@@ -64,6 +64,15 @@ a {
   color: #fff;
 }
 
+.filterButton{
+  padding: 0.5rem 1rem;
+  background-color: #61dafb;
+  border: none;
+  border-radius: 0.125rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
 li{
   list-style: none;
 }
